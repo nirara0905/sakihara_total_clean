@@ -1,0 +1,139 @@
+/* ============================
+   Contact
+   ============================ */
+
+/* サブ背景色でWorksとFooterの間に区切り */
+.contact {
+  background: var(--color-bg-sub);
+  padding: 96px 24px;
+}
+
+.inner {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* セクション見出し */
+.sectionLabel {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.sectionTitle {
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 16px;
+}
+
+.lead {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.8;
+  margin-bottom: 48px;
+}
+
+/* ============================
+   LINEボタン
+   ============================ */
+
+.lineButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: #06C755;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 700;
+  padding: 18px 48px;
+  border-radius: 50px;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  margin-bottom: 40px;
+}
+
+.lineButton:hover {
+  opacity: 0.85;
+  transform: translateY(-3px);
+}
+
+.lineIcon {
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
+}
+
+/* ============================
+   QRコード + 電話番号
+   ============================ */
+
+.subContact {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+/* QRコード */
+.qrWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.qrImage {
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+}
+
+.qrCaption {
+  font-size: 0.75rem;
+  color: #888;
+}
+
+/* 区切り線（縦） */
+.divider {
+  width: 1px;
+  height: 80px;
+  background: #ddd;
+}
+
+/* 電話番号 */
+.phoneWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.phoneLabel {
+  font-size: 0.8rem;
+  color: #888;
+  letter-spacing: 0.05em;
+}
+
+.phoneNumber {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-main);
+  letter-spacing: 0.05em;
+}
+
+/* スマホ：縦に並べる */
+@media (max-width: 480px) {
+  .divider {
+    width: 80px;
+    height: 1px;
+  }
+
+  .subContact {
+    flex-direction: column;
+    gap: 24px;
+  }
+}

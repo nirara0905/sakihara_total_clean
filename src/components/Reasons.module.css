@@ -1,0 +1,127 @@
+/* ============================
+   Reasons
+   ============================ */
+
+.reasons {
+  background: #b4c882;
+  padding: 96px 24px;
+}
+
+.inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* SVG見出し画像 */
+.titleWrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 56px;
+}
+
+.titleImage {
+  width: 60%;
+  height: auto;
+}
+
+/* カードグリッド：3列 */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+/* ============================
+   カード外枠
+   ============================ */
+
+.card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.55);
+  border-radius: 16px;
+  padding: 20px 20px 24px;
+  /* 数字バッジ・アイコンのはみ出しを許可 */
+  overflow: visible;
+}
+
+/* ============================
+   左上：数字バッジ
+   ============================ */
+
+.numberBadge {
+  position: absolute;
+  top: -16px;
+  left: -16px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--color-main);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+  z-index: 1;
+}
+
+/* ============================
+   右上：アイコン画像（はみ出し）
+   ============================ */
+
+.iconWrapper {
+  position: absolute;
+  top: -20px;
+  right: -12px;
+  width: 88px;
+  height: 88px;
+  z-index: 1;
+}
+
+.iconImage {
+  object-fit: contain;
+  drop-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* ============================
+   緑パネル（金枠 + タイトル）
+   ============================ */
+
+.panel {
+  margin-top: 32px; /* バッジ分の余白 */
+  border-radius: 8px;
+  overflow: hidden;
+  border: 2px solid #c9a227;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* 画像を比率そのままで全幅表示 */
+.panelImage {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ============================
+   下部：説明文
+   ============================ */
+
+.description {
+  padding: 16px 8px 0;
+  font-size: 0.88rem;
+  color: #3a3a3a;
+  line-height: 1.8;
+  text-align: center;
+}
+
+/* ============================
+   タブレット対応（768px以下）
+   ============================ */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+    max-width: 360px;
+    margin: 0 auto;
+  }
+}

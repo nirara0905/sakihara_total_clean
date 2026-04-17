@@ -1,0 +1,135 @@
+/* ============================
+   Header
+   ============================ */
+
+/* 全体：上部に固定、白背景 + 影 */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.8); /* 少し透過してheroが透けて見える */
+  backdrop-filter: blur(4px); /* 背景をぼかして透過感を自然に */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* 内側：最大幅を制限してセンタリング */
+.inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ロゴ */
+.logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* デスクトップナビ */
+.nav {
+  display: flex;
+  gap: 32px;
+}
+
+.navLink {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--color-text);
+  position: relative;
+  padding-bottom: 4px;
+}
+
+/* ホバー時に緑のアンダーライン */
+.navLink::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--color-main);
+  transition: width 0.25s ease;
+}
+
+.navLink:hover::after {
+  width: 100%;
+}
+
+/* ハンバーガーボタン（スマホのみ表示） */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 36px;
+  height: 36px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+/* ハンバーガーの3本線 */
+.bar {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: var(--color-main);
+  border-radius: 2px;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+/* ×ボタンのアニメーション */
+.barTop {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.barMid {
+  opacity: 0;
+}
+
+.barBot {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ============================
+   スマホ対応（768px以下）
+   ============================ */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  /* ナビはデフォルトで非表示 */
+  .nav {
+    display: none;
+    flex-direction: column;
+    gap: 0;
+    position: absolute;
+    top: 68px;
+    left: 0;
+    right: 0;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  }
+
+  /* ハンバーガーを開いたときに表示 */
+  .navOpen {
+    display: flex;
+  }
+
+  .navLink {
+    padding: 16px 24px;
+    border-top: 1px solid #f0f0f0;
+    font-size: 1rem;
+  }
+
+  .navLink::after {
+    display: none;
+  }
+}
