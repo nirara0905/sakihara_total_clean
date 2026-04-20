@@ -1,0 +1,176 @@
+/* ============================
+   Works ギャラリー + モーダル
+   ============================ */
+
+/* フラットグリッド：3列 */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* 各カード */
+.card {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer; /* クリックできることを示す */
+}
+
+/* 写真 */
+.photo {
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.4s ease;
+}
+
+.card:hover .photo {
+  transform: scale(1.06);
+}
+
+/* ホバー時のラベル */
+.label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 10px 14px;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.55));
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  transform: translateY(4px);
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.card:hover .label {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* beforeバッジ：before画像がある写真にアイコン表示 */
+.beforeBadge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 4px;
+  letter-spacing: 0.05em;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover .beforeBadge {
+  opacity: 1;
+}
+
+/* ============================
+   モーダルオーバーレイ
+   ============================ */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* モーダル本体 */
+.modal {
+  position: relative;
+  max-width: 860px;
+  width: 100%;
+  animation: scaleIn 0.2s ease;
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to   { transform: scale(1);    opacity: 1; }
+}
+
+/* モーダルヘッダー：BEFOREラベル + 閉じるボタンを横並び */
+.modalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--color-main);
+  border-radius: 8px 8px 0 0;
+  padding: 8px 12px;
+}
+
+/* BEFORE ラベル */
+.modalLabel {
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+}
+
+/* before画像：縦長でもviewportに収まるよう max-height で制限 */
+.modalImage {
+  width: 100%;
+  height: auto;
+  max-height: 75vh;
+  object-fit: contain;
+  display: block;
+  border-radius: 0 0 8px 8px;
+  background: #111; /* contain時の余白をダーク背景で埋める */
+}
+
+/* 閉じるボタン */
+.closeButton {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.closeButton:hover {
+  background: rgba(255, 255, 255, 0.45);
+}
+
+/* ============================
+   レスポンシブ
+   ============================ */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .closeButton {
+    top: -12px;
+    right: -4px;
+  }
+}
