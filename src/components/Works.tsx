@@ -70,6 +70,11 @@ const WORKS = [
     label:  "防水工事",
     before: "/images/防水工事_92708928_before.jpg",
   },
+  {
+    src:    "/images/外構工事_01.jpg",
+    label:  "外構工事",
+    before: "/images/外構工事_01_before.jpg",
+  },
 ];
 
 export default function Works() {
